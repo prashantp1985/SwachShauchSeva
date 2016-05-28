@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--This is ant build file for creating DCC jar 				-->
+<!--For building ANT 1.7 is required                            -->
+<!--Author : Prashant Padmanabhan 								-->
+<project default="build" name="Creating Jar for Swach Shauch Seva">
+	<target name="build">
+		<property environment="env" />
+		<property name="ECLIPSE_HOME" value="D:/Software/eclipse" />
+		<property name="junit.output.dir" value="junit" />
+		<property name="debuglevel" value="source,lines,vars" />
+		<property name="target" value="1.6" />
+		<property name="source" value="1.6" />
+		<property name="sss_version" value="1.0" />
+		<property name="javaSourceDir" value="D:/Program Files/Java/jdk1.6.0_04/bin" />
+		<property name="destinationPath" value="C:/prashant/workspace/sortpp/SSS" />
+		<property name="zipPath" value="C:/Users/padma/Desktop/sss.zip" />
+		<property name="workspacePath"
+			value="C:/prashant/workspace/sortpp/SSS/" />
+		<tstamp>
+			<format property="touch.time" pattern="MM/dd/yyyy hh:mm aa"
+				offset="-5" unit="hour" />
+		</tstamp>
+		<jar destfile="${destinationPath}/sss.jar"
+			filesetmanifest="mergewithoutmain" includes="com/sss/*.*"
+			excludes="com/sss/test/*.*">
+			<manifest>
+				<attribute name="Main-Class"
+					value="com.sss.screens.WashroomFinderScreen" />
+				<attribute name="Class-Path" value="."/>
+				<section name="Other Information">
+					<attribute name="Built-By" value="Prashant Padmanabhan" />
+					<attribute name="Project" value="Swach Shauch Seva" />
+					<attribute name="Jar-Version" value="${sss_version}" />
+					<attribute name="Deployment-date" value="${TODAY}" />
+					<attribute name="Deployment-time" value="${TSTAMP}" />
+				</section>
+			</manifest>
+			<fileset dir="${workspacePath}/bin" excludes="${workspacePath}/image/*.JPG">
+				<exclude name="**/*Test*.class" />
+				<exclude name="**/test" />
+			</fileset>
+		</jar>
+		<zip destfile="${zipPath}" basedir="${destinationPath}" />
+		<!--delete dir="${destinationPath}" /-->
+	</target>
+</project>
