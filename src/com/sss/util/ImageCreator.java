@@ -74,7 +74,7 @@ public BufferedImage getImage() {
 
 public void paint(Graphics g) {
 	Dimension screenSize = FrameCreator.screenSize;
-    g.drawImage( image, (screenSize.width) / 3 - imageAdjustment, FrameCreator.STANDARD_HEIGHT, null);
+    g.drawImage( image, imageAdjustment, FrameCreator.STANDARD_HEIGHT, null);
   }
 
 }

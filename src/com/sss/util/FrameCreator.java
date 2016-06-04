@@ -59,7 +59,7 @@ public class FrameCreator {
 		frameSize.width = screenSize.width;
 		
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setSize(frameSize.width, frameSize.height - START_MENU_MARGIN);
+		frame.setSize(frameSize.width/4 - 30, frameSize.height/2 + 150);
 		
 		return frame;
 	}
@@ -103,7 +103,7 @@ public class FrameCreator {
 			jPanel.add(component, BorderLayout.CENTER);
 			
 		}
-		
+		isScrollPaneRequired = false;
 		if (isScrollPaneRequired) {
 			final JScrollPane scroller = new JScrollPane(jPanel);
 //			scroller.setOpaque(true); //content panes must be opaque
